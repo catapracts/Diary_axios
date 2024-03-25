@@ -6,21 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 function DiaryItem({id , emotionId, content, date}) {
 
-    // MPA 에서 페이지 이동 : <a href="이동할페이지.html"> 이동 </a>    , 
-        // window.location.href ("sub.html")    : 함수 , 이벤트                       
-    // SPA 에서 페이지 이동 : <Link to='/home'> 이동 </Link> 
-    //        라우팅 구성이 되어 있어야 함. /home (요청)==> <Home /> (컴포넌트)  
-    //        useNavigate  : navigate ('/home')
-
-    // useNavigate 훅 선언 
     const navigate = useNavigate(); 
 
-    // diary 상세정보 로 이동 
+
     const onDetail = () => {
         navigate(`/diary/${id}`); 
     }
 
-    // diary 수정 정보로 이동 , useNavigate 훅 을 사용해서 이동 
+ 
     const goEdit = () => {
         navigate(`/edit/${id}`); 
     }

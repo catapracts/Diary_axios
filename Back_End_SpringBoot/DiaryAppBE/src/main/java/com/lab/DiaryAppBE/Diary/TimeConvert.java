@@ -72,6 +72,25 @@ public class TimeConvert
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA);
         String str = sdf.format(new Date(timestamp.getTime()));
         System.out.println(str);
+        
+        java.sql.Timestamp timestamp_1 = java.sql.Timestamp.valueOf("2018-09-21 10:53:00.0");
+        System.out.format("timestamp : %s\r", timestamp_1.getTime());
+        System.out.format("date : %s\r\r", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(timestamp_1));
+        
+        java.sql.Timestamp timestamp_2 = java.sql.Timestamp.valueOf(LocalDateTime.now());
+        System.out.format("timestamp : %s\r", timestamp_2.getTime());
+        java.sql.Date date2 = new java.sql.Date(timestamp_2.getTime());
+        System.out.format("date : %s\r\r", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date2));
+        
+        java.sql.Timestamp timestamp_3 = new java.sql.Timestamp(Long.parseLong("1537495373964"));
+        System.out.format("timestamp : %s\r", timestamp_3.getTime());
+        System.out.format("date : %s", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new java.sql.Date(timestamp_2.getTime())));
+        
+        
+        
+        
+        
+        
 	}
 	
 }

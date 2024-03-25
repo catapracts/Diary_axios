@@ -33,7 +33,6 @@ public class DiaryEntity
 	private long id;
 	
 	@Column(name = "date")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date date;
 	
 	@Column(name = "content")

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//모든 페이지에서 라우팅 처리를 할 수 있도록 BrowserRouter 컴포넌트를 App 감싸줌 
+
 import { BrowserRouter } from 'react-router-dom';
 
 

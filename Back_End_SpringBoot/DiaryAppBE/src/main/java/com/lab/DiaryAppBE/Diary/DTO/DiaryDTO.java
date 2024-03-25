@@ -18,7 +18,6 @@ public class DiaryDTO
 {
 	private long id;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date date;
 	
 	private String content;

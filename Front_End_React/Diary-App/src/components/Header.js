@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css'; 
-
-// /, new, diary, edit 요청에서 공통으로 사용할수 있도록 많들어 놓는 공통 컴포넌트 
+ 
 
 function Header({title, leftChild, rightChild}) {
     return (

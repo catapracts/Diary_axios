@@ -3,8 +3,7 @@ import {emotionList} from '../utils';
 import  './Viewer.css'; 
 
 function Viewer({content, emotionId,name}) {
-// emotionID 를 가지고 emotionList에서 해당 ID에 대한 객체를 추출 
-// emotionList : [ {}, {}, {}, {}, {} ]
+
 const emotionItem = emotionList.find(
     (it) => String (emotionId) === String (it.id)
 ); 
@@ -12,7 +11,7 @@ const emotionItem = emotionList.find(
 
     return (
         <div className="Viewer">
-            {/* 이미지를 적용 */}
+
             <section>
                 <h4> 오늘의 감정</h4>
                 <div className = {["emotion_img_wrapper", 
@@ -22,7 +21,6 @@ const emotionItem = emotionList.find(
                 </div>
             </section>
 
-            {/* 읽기의 내용을 출력 */ }
             <section>
                 <h4> 오늘의 읽기 </h4>
                 <div className="content_wrapper">
