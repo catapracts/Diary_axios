@@ -4,10 +4,9 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.Locale;
+
 
 public class TimeConvert 
 {
@@ -17,7 +16,7 @@ public class TimeConvert
 	Date date;
 	Instant instant;
 	
-	private static SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+	private static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public static Date pareDate(String dateStr) throws ParseException 
 	{
@@ -34,9 +33,22 @@ public class TimeConvert
 		}
 		return dateStr;
 	}
+	
+	public static Date dateConvert1(Date date) throws ParseException
+	{
+		System.out.println(date);
+		System.out.println("=================");
+		formatDate(date);
+		System.out.println(formatDate(date));
+		System.out.println("=================");
+		System.out.println(pareDate(formatDate(date)));
+		System.out.println("=================");
+		return pareDate(formatDate(date));
+	}
    
-    public static void main(String[] args) 
+    public static void main(String[] args) throws ParseException 
     {
+/*
         //  LocalDateTime to Timestamp
         LocalDateTime no = LocalDateTime.now();
         Timestamp tt = Timestamp.valueOf(no);
@@ -85,8 +97,11 @@ public class TimeConvert
         java.sql.Timestamp timestamp_3 = new java.sql.Timestamp(Long.parseLong("1537495373964"));
         System.out.format("timestamp : %s\r", timestamp_3.getTime());
         System.out.format("date : %s", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new java.sql.Date(timestamp_2.getTime())));
+*/
+    	
+        Date date = new Date();
         
-        
+        System.out.println(dateConvert1(date));
         
         
         

@@ -45,10 +45,7 @@ function Home(props) {
         setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1 ) ); 
     }
 
-    console.log(typeof filteredDate);
-    console.log(typeof filteredDate.values.toString);
-    const json = JSON.stringify(filteredDate);
-    console.log(json);
+
     
 
     return (
@@ -61,10 +58,10 @@ function Home(props) {
                     onClick={ onIncreseMonth }/>}
             />
 
-            <DiaryList data={filteredDate} />
-{/* 
-            <DiaryList data={data} />
- */}
+           <DiaryList data={filteredDate} />
+
+          {/* <DiaryList data={data} />*/}
+
         </div>
     );
 }

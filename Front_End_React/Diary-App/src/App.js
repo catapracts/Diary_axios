@@ -64,7 +64,6 @@ function App() {
   const [date, setDate] = useState('');
   const [content, setContent] = useState('');
   const [emotionId, setEmotionId] = useState('');
-  const [diary, setDiary] = useState([]);
   const navigate = useNavigate();
 
 
@@ -87,6 +86,7 @@ const idRef = useRef(3);
     console.log(response.data);
   }).catch(error => {console.log(error)})
 }
+
 
   const onCreate = (date, content, emotionId) => {
 
@@ -117,11 +117,9 @@ const idRef = useRef(3);
     console.log (`App 업데이트 날짜 : ${date}`)
     console.log (`포멧 완료된 날짜 : ${new Date(date).getTime()}`)
 
+    get(id);
     update(id, date, emotionId, content);
-    console.log(id)
-    console.log(date)
-    console.log(emotionId)
-    console.log(content)
+
   }
 
 
@@ -144,7 +142,7 @@ const idRef = useRef(3);
 
   const deleteD = (id) =>
   {
-   
+    
     DiaryService.deleteDiary(id).then((response)=>
     {
       DiaryService.getAllDiary();

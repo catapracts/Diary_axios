@@ -40,6 +40,7 @@ public class DiaryController
 	public List<DiaryEntity> getAllDiary()
 	{
 		System.out.println("getAllDiary method 호출됨");
+		System.out.println(diaryService.getDiaryList().get(0).getDate().getClass().getName());
 		return diaryService.getDiaryList();
 	}
 	
@@ -48,6 +49,11 @@ public class DiaryController
 	@PostMapping
 	public DiaryEntity createDiary(@RequestBody DiaryDTO diaryDTO)
 	{
+		System.out.println("createDiary method 호출됨");
+		System.out.println(diaryDTO.getContent());
+		System.out.println(diaryDTO.getDate());
+		System.out.println(diaryDTO.getDate().getClass().getName());
+		System.out.println(diaryDTO.getEmotionId());
 		return diaryService.createDiary(diaryDTO);
 	}
 	
@@ -57,7 +63,8 @@ public class DiaryController
 	public ResponseEntity<DiaryEntity> getDiaryById(@PathVariable(name="id") long id)
 	{
 		DiaryEntity diary = diaryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id: " + id));
-		
+		System.out.println("getDiaryById호출됨");
+		System.out.println(diary.getDate().getClass().getName());
 		return ResponseEntity.ok(diary);
 	}
 	
@@ -67,9 +74,13 @@ public class DiaryController
 	public ResponseEntity<DiaryEntity> updateDiary(@PathVariable(name="id") long id, @RequestBody DiaryEntity diaryDetails)
 	{
 		DiaryEntity updateDiary = diaryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id: " + id));
+		System.out.println("updateDiary호출됨");
+		System.out.println(updateDiary.getDate().getClass().getName());
+		System.out.println(diaryDetails.getDate().getClass().getName());
 		updateDiary.setDate(diaryDetails.getDate());
 		updateDiary.setContent(diaryDetails.getContent());
 		updateDiary.setEmotionId(diaryDetails.getEmotionId());
+		System.out.println(updateDiary.getDate().getClass().getName());
 		diaryRepository.save(updateDiary);
 		
 		return ResponseEntity.ok(updateDiary);
@@ -81,7 +92,7 @@ public class DiaryController
 	public ResponseEntity<HttpStatus> deleteUpdate(@PathVariable(name="id") long id)
 	{
 		DiaryEntity diary = diaryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id: " + id));		
-		
+		System.out.println("deleteDiary호출됨");
 		diaryRepository.delete(diary);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
